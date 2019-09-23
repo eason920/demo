@@ -25,21 +25,21 @@ const youtube = function(videoId){
 				'onStateChange': onPlayerStateChange
 			}
 		});
-		yBoxInner = new YT.Player('y-box-inner', {
-			videoId,
-			playerVars: {
-				autoplay: 1,
-				playsinline: 1,
-				loop: 1,
-				rel: 0,
-				controls: 0,
-				mute: 1
-			},
-			events: {
-				'onReady': onPlayerReady,
-				'onStateChange': onPlayerStateChange
-			}
-		});
+		// yBoxInner = new YT.Player('y-box-inner', {
+		// 	videoId,
+		// 	playerVars: {
+		// 		autoplay: 1,
+		// 		playsinline: 1,
+		// 		loop: 1,
+		// 		rel: 0,
+		// 		controls: 0,
+		// 		mute: 1
+		// 	},
+		// 	events: {
+		// 		'onReady': onPlayerReady,
+		// 		'onStateChange': onPlayerStateChange
+		// 	}
+		// });
 		
 	}
 	function onPlayerReady(event) {
