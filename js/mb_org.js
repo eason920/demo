@@ -1,7 +1,8 @@
 //nglEq0nxEdg // galaxy
 //CZoYuWA21SU // bird
 const videoId = 'nglEq0nxEdg';
-let yBox;
+let yBoxCover;
+let yBoxInner;
 const youtube = function(videoId){
 	// append script
 	const tag = document.createElement('script');
@@ -24,6 +25,22 @@ const youtube = function(videoId){
 				'onStateChange': onPlayerStateChange
 			}
 		});
+		yBoxInner = new YT.Player('y-box-inner', {
+			videoId,
+			playerVars: {
+				autoplay: 1,
+				playsinline: 1,
+				loop: 1,
+				rel: 0,
+				controls: 0,
+				mute: 1
+			},
+			events: {
+				'onReady': onPlayerReady,
+				'onStateChange': onPlayerStateChange
+			}
+		});
+		
 	}
 	function onPlayerReady(event) {
 		// event.target.mute();
@@ -79,8 +96,33 @@ $(function () {
 			$('.video-bg').css({display: 'block', height: $(window).width() * 0.6});
 			if( $('#y-box').hasClass('is-not-play') ){
 				youtube(videoId);
+				setTimeout(function(){
+					yBoxInner.playVideo();
+					// yBoxInner.mute(); not work
+					// yBoxInner.setVolume(0); not work
+					console.log('do mute');
+					
+					
+				}, 700);
+				setTimeout(function(){
+					console.log('got delay');
+					// API PROPERTY : not work
+					// yBoxInner.mute();
+
+					//	ALLOW : not work
+					// const muteAttr = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; mute'
+					// $('#y-box-inner').attr('allow', muteAttr);
+
+					// volume="0" : not work
+					// $('#y-box-inner').attr('volume', 0);
+
+					// URL : not work
+					// const muteUrl = $('#y-box-inner').attr('src') + '&mute=1&loop=1&playlist=' + videoId;
+					// console.log(muteUrl);
+					// $('#y-box-inner').attr('src', muteUrl);
+				}, 1000);
 			}else{
-				yBox.pauseVideo();
+				yBoxCover.pauseVideo();
 				yBoxInner.playVideo();
 			}
 

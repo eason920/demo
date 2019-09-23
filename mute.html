@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src='./js/jquery-1.11.1.min.js'></script>
+</head>
+<body>
+	<div id="y-box"></div>
+	<div class="mute">mute</div>
+	<script>
+		const videoId = 'nglEq0nxEdg';
+		let yBox;
+		const youtube = function (videoId) {
+			// append script
+			const tag = document.createElement('script');
+			tag.src = "./js/youtube_iframe_api.js";
+			const firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			function onYouTubeIframeAPIReady() {
+				yBox = new YT.Player('y-box', {
+					videoId,
+					playerVars: {
+						autoplay: 1,
+						playsinline: 1,
+						loop: 1,
+						rel: 0,
+						controls: 0,
+					},
+					events: {
+						'onReady': onPlayerReady,
+						'onStateChange': onPlayerStateChange
+					}
+				});
+			}
+			function onPlayerReady(event) {
+				// event.target.mute();
+				event.target.playVideo();
+			}
+			function onPlayerStateChange(evt) {
+				if (evt.data === YT.PlayerState.ENDED) {
+					evt.target.playVideo();
+				}
+			}
+			window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+		}
+
+		$(function(){
+			youtube(videoId);
+			$('.mute').click(function(){
+				yBox.mute();
+			});
+		});
+	</script>
+</body>
+</html>
