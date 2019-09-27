@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>copy in ios</title>
+</head>
+
+<body>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, molestias quis? Nam at possimus consequuntur doloribus vitae quisquam ipsum architecto, inventore cupiditate quo odit cum sed cumque corporis quas earum?Excepturi ipsum doloribus aliquam vero deleniti cupiditate hic accusamus reprehenderit sed, a rerum provident repellendus voluptatum unde veritatis! Asperiores placeat numquam corrupti nobis reiciendis, cumque a tenetur corporis architecto consequatur.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, provident molestiae. Dolores provident minus ipsam ut perferendis est nemo, aliquam consequatur, nobis error eveniet. Quibusdam quam impedit blanditiis perferendis exercitationem!
+    <input value="填入要複製的字串 例如 123456" style="display:none;" />
+    <button class="copy_coupon">【123456】點擊複製數字</button>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo neque omnis quidem ullam adipisci esse dicta velit perferendis. Unde ex dignissimos obcaecati. Obcaecati illum fugit voluptatum quos sapiente aspernatur voluptate.
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut doloribus deleniti, perferendis quia veniam aliquam inventore non veritatis, dolores magni odio incidunt sunt neque magnam cumque obcaecati fugit, tempore saepe?Sunt porro, molestiae totam cupiditate tempora consequatur, tempore voluptatum possimus quisquam nostrum deserunt inventore debitis aut est dolores ad expedita suscipit adipisci veniam recusandae accusantium beatae! Explicabo esse exercitationem officiis.
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+    <script>
+        window.Clipboard = (function (window, document, navigator) {
+            var textArea,
+                copy;
+
+            function isOS() {
+                return navigator.userAgent.match(/ipad|iphone/i);
+            }
+
+            function createTextArea(text) {
+                textArea = document.createElement('textArea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+            }
+
+            function selectText() {
+                var range,
+                    selection;
+
+                if (isOS()) {
+                    range = document.createRange();
+                    range.selectNodeContents(textArea);
+                    selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    textArea.setSelectionRange(0, 999999);
+                } else {
+                    textArea.select();
+                }
+            }
+
+            function copyToClipboard() {
+                document.execCommand("Copy");
+                document.body.removeChild(textArea);
+            }
+
+            copy = function (text) {
+                createTextArea(text);
+                selectText();
+                copyToClipboard();
+            };
+
+            return {
+                copy: copy
+            };
+        })(window, document, navigator);
+
+        $(".copy_coupon").on("click", function () {
+            var $this = $(this),
+                value = $this.prev("input").val();
+            window.Clipboard.copy(value);
+            // $("html, body").scrollTop($this.offset().top)
+        });
+    </script>
+
+</body>
+
+</html>
