@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>copy in ios</title>
+</head>
+
+<body>
+	11月即將來臨，又有不少新制上路！其中駕駛需特別注意，國道將啟動「天眼」科技執法，要是一個不注意，荷包恐怕就會大失血。此外，除了交通罰款之外，也有許多便民新制將實施。
+	<input value="要複製的字串" style="display:none;" />
+	<button class="copy">點擊複製數字</button>
+
+	<script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+	<script>
+		window.Clipboard = (function (window, document, navigator) {
+			let textArea;
+			let copy;
+
+			function isIOS() {
+				return navigator.userAgent.match(/ipad|iphone/i);
+			}
+
+			function createTextArea(text) {
+				textArea = document.createElement('textArea');
+				textArea.value = text;
+				document.body.appendChild(textArea);
+			}
+
+			function selectText() {
+				var range,
+					selection;
+				if (isIOS()) {
+					range = document.createRange();
+					range.selectNodeContents(textArea);
+					selection = window.getSelection();
+					selection.removeAllRanges();
+					selection.addRange(range);
+					textArea.setSelectionRange(0, 999999);
+				} else {
+					textArea.select();
+				}
+			}
+
+			function copyToClipboard() {
+				document.execCommand("Copy");
+				document.body.removeChild(textArea);
+			}
+
+			copy = function (text) {
+				createTextArea(text);
+				selectText();
+				copyToClipboard();
+			};
+
+			return {copy};
+		})(window, document, navigator);
+
+		$(".copy").on("click", function () {
+			const value = $(this).prev("input").val();
+			window.Clipboard.copy(value);
+		});
+	</script>
+
+</body>
+
+</html>
