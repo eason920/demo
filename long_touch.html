@@ -20,7 +20,7 @@
 			background:#01c3e0;
 		}
 		.article span{
-			/* user-select: none; */
+			user-select: none;
 			font-size: 16px;
 		}
 
@@ -67,13 +67,32 @@
 
 		// -----------------------------------
 		
-		$('.article span').on('mousedown', function(){
+		// $('.article span').on('mousedown', function(){
+		// 	let time = null
+		// 	const $this = $(this);
+		// 	// write('b2 mouse down');
+		// 	clearTimeout(time);
+			
+		// 	$this.on('mouseup.up', function () {
+		// 		clearTimeout(time);
+		// 		write('b2 not long enough = one click');
+		// 		$this.off('.up');
+		// 	})
+
+		// 	time = setTimeout(function(){
+		// 		write('b2 long touch / mouseover');
+		// 		$this.off('.up');
+		// 	}, 400);
+		// });
+		
+		// -----------------------------------
+		$('.article span').on('touchstart', function(){
 			let time = null
 			const $this = $(this);
 			// write('b2 mouse down');
 			clearTimeout(time);
 			
-			$this.on('mouseup.up', function () {
+			$this.on('touchend.up', function () {
 				clearTimeout(time);
 				write('b2 not long enough = one click');
 				$this.off('.up');
