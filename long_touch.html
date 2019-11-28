@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-saclable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>long touch</title>
+	<script src='./js/jquery.1.12.4.min.js'></script>
+	<style>
+		body{
+			font-family: arial;
+		}
+		.btn{
+			width: 33%;
+			color: #fff;
+			text-align:center;
+			border-radius: 17px;
+			line-height:33px;
+			user-select: none;
+			background:#01c3e0;
+		}
+		.article span{
+			user-select: none;
+			font-size: 16px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class='btn btn1'>click or dblclick</div>
+	<br/>
+	<div class="article">
+		<span>Lorem</span> <span>ipsum</span> <span>dolor,</span> <span>sit</span> <span>amet</span> <span>consectetur</span> <span>adipisicing</span> <span>elit.</span> <span>Pariatur</span> <span>id</span> <span>itaque</span> <span>cumque,</span> <span>incidunt</span> <span>eius</span> <span>sint</span> <span>aliquam</span> <span>ducimus</span> <span>quas</span> <span>aspernatur,</span> <span>culpa</span> <span>est</span> <span>mollitia</span> <span>accusantium</span> <span>velit</span> <span>nemo</span> <span>deserunt</span> <span>voluptatem</span> <span>ut</span> <span>eaque</span> <span>explicabo?</span>
+	</div>
+	<h2>action track</h2>
+	<ul>
+	</ul>
+	<script>
+		const write = function(text){
+			$('ul').append(
+				$('<li>').text(text)
+			)
+		};
+
+		// -----------------------------------
+		const demo1 = (function () {
+			let timer = null;
+			return {
+				fn1: function(){
+					clearTimeout(timer);
+					timer = setTimeout(function(){
+						write('click');
+					}, 300);
+				},
+				fn2: function(){
+					clearTimeout(timer);
+					write('double click');
+				},
+				init: function(){
+					$(function () {
+						$('.btn1').click(demo1.fn1).dblclick(demo1.fn2);
+					});
+				}
+			}
+		})();
+		demo1.init();
+
+		// -----------------------------------
+		
+		$('.article span').on('mousedown', function(){
+			let time = null
+			const $this = $(this);
+			// write('b2 mouse down');
+			clearTimeout(time);
+			
+			$this.on('mouseup.up', function () {
+				clearTimeout(time);
+				write('b2 not long enough = one click');
+				$this.off('.up');
+			})
+
+			time = setTimeout(function(){
+				write('b2 long touch / mouseover');
+				$this.off('.up');
+			}, 400);
+		});
+
+		// -----------------------------------
+		// const demo2 = (function(){
+		// 	let time = null;
+		// 	return {
+		// 		fn1: function(){
+		// 			const $this = $(this);
+		// 			clearTimeout(time2);
+		// 			write('b2 not long enough = one click');
+		// 			$this.off('.up');
+		// 			time = setTimeout(function () {
+		// 				write('b2 long touch / mouseover');
+		// 				$this.off('.up');
+		// 			}, 400);	
+		// 		},
+		// 		init: function(){
+		// 			$(function(){
+		// 				$('.article span').on('mousedown', function(){demo2.fn1});
+		// 			});
+		// 		}
+		// 	}
+		// })();
+		// demo2.init();
+
+	</script>
+</body>
+</html>
+<!--
+1. 要用立即函式 「 (function(){ here })(); 」才作用
+1.2 且用 return
+2. demo1.init = 自己 Q 自己
+3. return 與 function 的結合用法
+4. 「.」的秒用，demo1.fn1 為取 function demo1 中的 .fn1 key 值的意思，其實不是新方法，而是object 的取值方法而己
+5. 在此值為一函式，成為被組合成一組的 function
+-->
