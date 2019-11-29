@@ -29,69 +29,36 @@ $(function(){
 	demo1.init();
 
 	// -----------------------------------
-	$('.touch').on('touchstart', function(){
-		console.log('got');
-		
-	});
-	
-	// $('.article span').on('mousedown', function(){
-	// 	let time = null
-	// 	const $this = $(this);
-	// 	// write('b2 mouse down');
-	// 	clearTimeout(time);
-		
-	// 	$this.on('mouseup.up', function () {
-	// 		clearTimeout(time);
-	// 		write('b2 not long enough = one click');
-	// 		$this.off('.up');
-	// 	})
-
-	// 	time = setTimeout(function(){
-	// 		write('b2 long touch / mouseover');
-	// 		$this.off('.up');
-	// 	}, 400);
-	// });
-	
-	// -----------------------------------
-	$('.article span').on('touchstart', function(e){
-		e.preventDefault();
-		let time = null
-		const $this = $(this);
-		// write('b2 mouse down');
-		clearTimeout(time);
-		
-		$this.on('touchend.up', function () {
+	const eventTT = 'touchstart';
+	const eventTE = 'touchend.up';
+	const demo2 = function(event1, event2){
+		$('.article span').on(event1, function(e){
+			e.preventDefault();
+			let time = null
+			const $this = $(this);
 			clearTimeout(time);
-			write('b2 not long enough = one click');
-			$this.off('.up');
-		})
+			
+			$this.on(event2, function () {
+				clearTimeout(time);
+				write('click/touch event');
+				$this.off('.up');
+			})
+			
+			time = setTimeout(function(){
+				write('long event');
+				$this.off('.up');
+			}, 400);
+		});
+	};
+	const nua = navigator.userAgent;
+	console.log(nua);
+	
+	if( /android|iphone|ipad/i.test(nua) ){
+		write('is mobi');
+		demo2('touchstart', 'touchend.up');
+	}else{
+		write('is pc');
+		demo2('mousedown', 'mouseup.up');
+	}
 
-		time = setTimeout(function(){
-			write('b2 long touch / mouseover');
-			$this.off('.up');
-		}, 400);
-	});
-
-	// -----------------------------------
-	// const demo2 = (function(){
-	// 	let time = null;
-	// 	return {
-	// 		fn1: function(){
-	// 			const $this = $(this);
-	// 			clearTimeout(time2);
-	// 			write('b2 not long enough = one click');
-	// 			$this.off('.up');
-	// 			time = setTimeout(function () {
-	// 				write('b2 long touch / mouseover');
-	// 				$this.off('.up');
-	// 			}, 400);	
-	// 		},
-	// 		init: function(){
-	// 			$(function(){
-	// 				$('.article span').on('mousedown', function(){demo2.fn1});
-	// 			});
-	// 		}
-	// 	}
-	// })();
-	// demo2.init();
 });
