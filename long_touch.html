@@ -20,10 +20,14 @@
 			background:#01c3e0;
 		}
 		.article span{
-			/* user-select: none; */
+			user-select: none;
 			font-size: 16px;
+			display: inline-block;
 		}
-
+		.touch{
+			font-size: 30px;
+			display: inline-block;
+		}
 	</style>
 </head>
 <body>
@@ -32,102 +36,11 @@
 	<div class="article">
 		<span>Lorem</span> <span>ipsum</span> <span>dolor,</span> <span>sit</span> <span>amet</span> <span>consectetur</span> <span>adipisicing</span> <span>elit.</span> <span>Pariatur</span> <span>id</span> <span>itaque</span> <span>cumque,</span> <span>incidunt</span> <span>eius</span> <span>sint</span> <span>aliquam</span> <span>ducimus</span> <span>quas</span> <span>aspernatur,</span> <span>culpa</span> <span>est</span> <span>mollitia</span> <span>accusantium</span> <span>velit</span> <span>nemo</span> <span>deserunt</span> <span>voluptatem</span> <span>ut</span> <span>eaque</span> <span>explicabo?</span>
 	</div>
+	<span class="touch">touch</span>
 	<h2>action track</h2>
 	<ul>
 	</ul>
-	<script>
-		const write = function(text){
-			$('ul').append(
-				$('<li>').text(text)
-			)
-		};
-
-		// -----------------------------------
-		const demo1 = (function () {
-			let timer = null;
-			return {
-				fn1: function(){
-					clearTimeout(timer);
-					timer = setTimeout(function(){
-						write('click');
-					}, 300);
-				},
-				fn2: function(){
-					clearTimeout(timer);
-					write('double click');
-				},
-				init: function(){
-					$(function () {
-						$('.btn1').click(demo1.fn1).dblclick(demo1.fn2);
-					});
-				}
-			}
-		})();
-		demo1.init();
-
-		// -----------------------------------
-		
-		// $('.article span').on('mousedown', function(){
-		// 	let time = null
-		// 	const $this = $(this);
-		// 	// write('b2 mouse down');
-		// 	clearTimeout(time);
-			
-		// 	$this.on('mouseup.up', function () {
-		// 		clearTimeout(time);
-		// 		write('b2 not long enough = one click');
-		// 		$this.off('.up');
-		// 	})
-
-		// 	time = setTimeout(function(){
-		// 		write('b2 long touch / mouseover');
-		// 		$this.off('.up');
-		// 	}, 400);
-		// });
-		
-		// -----------------------------------
-		$('.article span').on('touchstart', function(){
-			let time = null
-			const $this = $(this);
-			// write('b2 mouse down');
-			clearTimeout(time);
-			
-			$this.on('touchend.up', function () {
-				clearTimeout(time);
-				write('b2 not long enough = one click');
-				$this.off('.up');
-			})
-
-			time = setTimeout(function(){
-				write('b2 long touch / mouseover');
-				$this.off('.up');
-			}, 400);
-		});
-
-		// -----------------------------------
-		// const demo2 = (function(){
-		// 	let time = null;
-		// 	return {
-		// 		fn1: function(){
-		// 			const $this = $(this);
-		// 			clearTimeout(time2);
-		// 			write('b2 not long enough = one click');
-		// 			$this.off('.up');
-		// 			time = setTimeout(function () {
-		// 				write('b2 long touch / mouseover');
-		// 				$this.off('.up');
-		// 			}, 400);	
-		// 		},
-		// 		init: function(){
-		// 			$(function(){
-		// 				$('.article span').on('mousedown', function(){demo2.fn1});
-		// 			});
-		// 		}
-		// 	}
-		// })();
-		// demo2.init();
-
-	</script>
+	<script src='./js/logn_touch.js'></script>
 </body>
 </html>
 <!--
