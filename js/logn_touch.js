@@ -29,8 +29,6 @@ $(function(){
 	demo1.init();
 
 	// -----------------------------------
-	const eventTT = 'touchstart';
-	const eventTE = 'touchend.up';
 	const demo2 = function(event1, event2){
 		$('.article span').on(event1, function(e){
 			e.preventDefault();
