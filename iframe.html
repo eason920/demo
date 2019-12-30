@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>youtube api</title>
-	<style>
-		iframe .ytp-title-text{
-			display: hidden;
-		}
-	</style>
+	<title>youtube playsinline</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!-- <script src="../js/jquery.1.12.4.min.js"></script> -->
 </head>
 <body>
-	<h1>youtube 有禁止跨域存取的設定，故改不了iframe 內元素(噴錯)</h1>
 	<div id="player"></div>
 	<script>
 		var tag = document.createElement('script');
@@ -25,7 +18,7 @@
 				width: '640',
 				videoId: 'CZoYuWA21SU',
 				playerVars: {
-					autoplay: 1,
+					// autoplay: 1,
 					playsinline: 1,
 					loop: 1,
 					rel: 0,
@@ -50,40 +43,6 @@
 			 }
 		}
 		window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-	</script>
-	<script>
-		$(function(){
-			var tt = document.createElement('script');
-			tt.src = "eason.css";
-			var ff = document.getElementsByTagName('script')[0];
-			ff.parentNode.insertBefore(tt, ff);
-
-
-
-			var fileName = "eason2.css";
-			var fileRef = document.createElement("link")
-			fileRef.setAttribute("rel", "stylesheet")
-			fileRef.setAttribute("type", "text/css")
-			fileRef.setAttribute("href", fileName)
-			setTimeout(function(){
-				$('#eason').contents().find('body').addClass('eason');
-				$('#eason').contents().find('head').append(fileRef);
-			},500);
-
-
-
-
-
-			console.log($('#player'));
-			setTimeout(function(){
-				console.log($('#eason'));
-				$('#eason').contents().find('div').css({color: 'red'})
-
-				console.log($('#player'));
-				$("#player").contents().find(".ytp-chrome-top-buttons").css('background-color', 'black');
-				
-			}, 500);
-		})
 	</script>
 </body>
 
