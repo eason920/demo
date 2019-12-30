@@ -5,6 +5,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
+	<div>v3</div>
 	<div id="player"></div>
 	<script>
 		var tag = document.createElement('script');
@@ -18,9 +19,10 @@
 				width: '640',
 				videoId: 'CZoYuWA21SU',
 				playerVars: {
-					autoplay: 0,
-					playsinline: 1,
-					rel: 0
+					autoplay: 0, // 自動播放
+					playsinline: 1, // 充許ios上播放時不全屏(0全屏/1取消) 
+					rel: 0, // 播結束的推薦影片顯示
+					controls: 0 // 時間控制 bar 的顯示
 				},
 				events: {
 					'onReady': onPlayerReady,
