@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>youtube api</title>
+	<style>
+		iframe .ytp-title-text{
+			display: hidden;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery.1.12.4.min.js"></script> -->
+</head>
+<body>
+	<h1>youtube 有禁止跨域存取的設定，故改不了iframe 內元素(噴錯)</h1>
+	<div id="player"></div>
+	<script>
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		var player;
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('player', {
+				height: '390',
+				width: '640',
+				videoId: 'CZoYuWA21SU',
+				playerVars: {
+					autoplay: 1,
+					playsinline: 1,
+					loop: 1,
+					rel: 0,
+					modestbranding: 1,
+					autohide: 1,
+					showinfo: 0,
+					controls: 0
+				},
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+		function onPlayerReady(event) {
+			event.target.mute();
+			event.target.playVideo();
+		}
+		function onPlayerStateChange(evt) {
+			 if (evt.data === YT.PlayerState.ENDED) {
+				  evt.target.playVideo();
+			 }
+		}
+		window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+	</script>
+	<script>
+		$(function(){
+			var tt = document.createElement('script');
+			tt.src = "eason.css";
+			var ff = document.getElementsByTagName('script')[0];
+			ff.parentNode.insertBefore(tt, ff);
+
+
+
+			var fileName = "eason2.css";
+			var fileRef = document.createElement("link")
+			fileRef.setAttribute("rel", "stylesheet")
+			fileRef.setAttribute("type", "text/css")
+			fileRef.setAttribute("href", fileName)
+			setTimeout(function(){
+				$('#eason').contents().find('body').addClass('eason');
+				$('#eason').contents().find('head').append(fileRef);
+			},500);
+
+
+
+
+
+			console.log($('#player'));
+			setTimeout(function(){
+				console.log($('#eason'));
+				$('#eason').contents().find('div').css({color: 'red'})
+
+				console.log($('#player'));
+				$("#player").contents().find(".ytp-chrome-top-buttons").css('background-color', 'black');
+				
+			}, 500);
+		})
+	</script>
+</body>
+
+</html>
