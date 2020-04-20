@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+	<!-- <div id="dwBox"></div> vvv -->
+	<a class='btn-and' style='font-size: 0;width: 168px;height: 50px;top: auto;right: 0;bottom: 20%;left: 0;position: absolute;margin: auto;background-size: 168px 50px;background-position: center center;background-image: url(https://funday.asia/newmylessonmobile/learning2020/images/dw_and.png)' href='https://play.google.com/store/apps/details?id=com.fundayapp'>android</a>
+	<a class='btn-ios' style='font-size: 0;width: 168px;height: 50px;top: auto;right: 0;bottom: 20%;left: 0;position: absolute;margin: auto;background-size: 168px 50px;background-position: center center;background-image: url(https://funday.asia/newmylessonmobile/learning2020/images/dw_ios.png)' href='https://apps.apple.com/tw/app/funday%E8%8B%B1%E8%AA%9E%E9%80%9A/id1476363900'>ios</a>
+
+	<script>
+
+		// $('#dwBox') vvv
+		const nua = navigator.userAgent;
+		if(/iphone|ipad/i.test(nua)){
+			$('.btn-and').hide();
+		}else{
+			$('.btn-ios').hide();
+		}
+	</script>
+	
+</body>
+</html>
+
+
+
+
