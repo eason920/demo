@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>single water</title>
+    <link href="./css/single_water.css" rel="stylesheet">
+    <script src="./assets/plugins/jquery/jquery-1.12.4-min.js"></script>
+    <script src="./assets/plugins/chart-js/Chart-2.8.0.min.js"></script>
+  </head>
+  <body> 
+    <div id="nav">
+      <div id="logo"><img class="logo-img" src="./images/logo.png">
+        <div class="logo-title">今時科技股份有限公司</div>
+      </div>
+      <div id="location">案場：<span>中國信托大樓</span></div>
+      <div id="nav-mul"><span>案場總覽</span>
+        <div id="mullabel">
+          <div class="mullabel-item muted">Prev</div>
+          <div class="mullabel-item">1</div>
+          <div class="mullabel-item active">2</div>
+          <div class="mullabel-item">3</div>
+          <div class="mullabel-item">Next</div>
+        </div>
+      </div>
+      <div id="hamber">
+        <div class="hamber-line is-t"> </div>
+        <div class="hamber-line is-m"></div>
+        <div class="hamber-line is-b"></div>
+      </div>
+      <div id="mbbox">
+        <div id="navlabel">
+          <div class="navlabel-item">冰機狀態</div>
+          <div class="navlabel-item active">冷卻水系統狀態</div>
+        </div>
+        <div id="statusbox">
+          <div class="status-chill status-box">
+            <div class="status-item" data-status="0">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">0</div>
+            </div>
+            <div class="status-item" data-status="1">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">1</div>
+            </div>
+            <div class="status-item" data-status="2">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">2</div>
+            </div>
+            <div class="status-item" data-status="3">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">3</div>
+            </div>
+            <div class="status-item" data-status="4">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">4</div>
+            </div>
+            <div class="status-item" data-status="5">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">5</div>
+            </div>
+          </div>
+          <div class="status-chillm status-box">
+            <div class="status-item" data-status="0">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">1</div>
+            </div>
+            <div class="status-item" data-status="1">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">2</div>
+            </div>
+          </div>
+          <div class="status-water status-box">
+            <div class="status-item" data-status="1">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">1</div>
+            </div>
+            <div class="status-item" data-status="2">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">2</div>
+            </div>
+            <div class="status-item" data-status="3">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">3</div>
+            </div>
+            <div class="status-item" data-status="4">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">4</div>
+            </div>
+            <div class="status-item" data-status="5">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">5</div>
+            </div>
+          </div>
+        </div>
+        <div id="log">
+          <div class="log-msg">
+            <div class="log-title">使用者：</div>
+            <div class="log-acc">訪客訪客訪客訪客</div>
+          </div>
+          <div class="log-btnbox">
+            <div class="log-in log-btn">登入</div>
+            <div class="log-outbox">
+              <div class="log-color log-btn">調整用色</div>
+              <div class="log-area log-btn">調整變頻器區間</div>
+              <div class="log-out log-btn">登出</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      <div id="wrapper-single">
+        <div class="block">
+          <div class="title">
+            <div class="title-txt"> </div>
+            <div class="title-switch"> 
+              <div class="title-item"> 
+                <div class="title-machine">30HP01</div>
+                <div class="title-status" data-stauts="man">MAN</div>
+              </div>
+              <div class="title-item"> 
+                <div class="title-machine">30HP02</div>
+                <div class="title-status" data-stauts="auto">AUTO</div>
+              </div>
+              <div class="title-item"> 
+                <div class="title-machine">30HP03</div>
+                <div class="title-status" data-stauts="off">OFF</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-item" data-type="chill">
+              <div class="card-left">
+                <div class="left-img"><img src="./images/chill_nor.png"></div>
+                <div class="left-name">水泵浦</div>
+              </div>
+              <div class="card-right">
+                <div class="right-item">
+                  <div class="right-name">30HP01：</div>
+                  <div class="right-color" data-status="1" style="background-color: #9B9BEA">33</div>
+                  <div class="right-btn">省電狀態</div>
+                </div>
+                <div class="right-item">
+                  <div class="right-name">30HP02：</div>
+                  <div class="right-color" data-status="2" style="background-color: #4B4BEA">33</div>
+                  <div class="right-btn">省電狀態</div>
+                </div>
+                <div class="right-item">
+                  <div class="right-name">30HP03：</div>
+                  <div class="right-color" data-status="0" style="background-color: #999">33</div>
+                  <div class="right-btn">省電狀態</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item" data-type="water">
+              <div class="card-left">
+                <div class="left-img"><img src="./images/water_nor.png"></div>
+                <div class="left-name">水塔風扇</div>
+              </div>
+              <div class="card-right">
+                <div class="right-item">
+                  <div class="right-name">Tower01：</div>
+                  <div class="right-color" data-status="3" style="background-color: #4B4BEA">33</div>
+                  <div class="right-btn">省電狀態</div>
+                </div>
+                <div class="right-item">
+                  <div class="right-name">Tower02：</div>
+                  <div class="right-color" data-status="4" style="background-color: #C1272D">33</div>
+                  <div class="right-btn">省電狀態</div>
+                </div>
+                <div class="right-item">
+                  <div class="right-name">Tower03：</div>
+                  <div class="right-color" data-status="5" style="background-color: #F7931E">33</div>
+                  <div class="right-btn">省電狀態</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item" data-type="pipe">
+              <div class="card-left">
+                <div class="left-img"><img src="./images/pipe.png"></div>
+                <div class="left-name">水溫/水壓</div>
+              </div>
+              <div class="pipe"> 
+                <div class="pipe-box">
+                  <div class="pipe-item">
+                    <div class="pipe-name">出水溫：</div>
+                    <div class="pipe-num">25.5</div>
+                  </div>
+                  <div class="pipe-item">
+                    <div class="pipe-name">回水溫：</div>
+                    <div class="pipe-num">35.34</div>
+                  </div>
+                  <div class="pipe-item">
+                    <div class="pipe-name">水壓差：</div>
+                    <div class="pipe-num">0.606</div>
+                  </div>
+                </div>
+                <div class="pipe-board">
+                  <div class="pipe-guide"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
