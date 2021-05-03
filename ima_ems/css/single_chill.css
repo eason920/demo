@@ -43,13 +43,14 @@ body {
 }
 
 #content {
-  background-image: linear-gradient(to bottom, #aaa, #fff);
-  height: 100vh;
+  background-image: linear-gradient(to bottom, #aaa, #eee);
+  min-height: 100vh;
   padding-top: 45px;
 }
 
 #wrapper-single {
   margin: 0 auto;
+  padding-bottom: 1px;
   min-height: 100%;
 }
 
@@ -306,6 +307,18 @@ body {
     background-color: #ccc;
     line-height: 30px;
     border-radius: 15px;
+  }
+
+  #nav-masker {
+    display: none;
+    position: fixed;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
   }
 }
 @media screen and (min-width: 769px) {
@@ -614,6 +627,7 @@ body {
 @media screen and (min-width: 769px) {
   #content {
     overflow: auto;
+    height: 100vh;
   }
 
   #wrapper-single {

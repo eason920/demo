@@ -43,13 +43,14 @@ body {
 }
 
 #content {
-  background-image: linear-gradient(to bottom, #aaa, #fff);
-  height: 100vh;
+  background-image: linear-gradient(to bottom, #aaa, #eee);
+  min-height: 100vh;
   padding-top: 45px;
 }
 
 #wrapper-single {
   margin: 0 auto;
+  padding-bottom: 1px;
   min-height: 100%;
 }
 
@@ -307,6 +308,18 @@ body {
     line-height: 30px;
     border-radius: 15px;
   }
+
+  #nav-masker {
+    display: none;
+    position: fixed;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+  }
 }
 @media screen and (min-width: 769px) {
   .logo-img {
@@ -375,9 +388,6 @@ body {
 }
 .card {
   background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .left-img img {
@@ -385,7 +395,8 @@ body {
 }
 
 .left-name {
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 .right-item {
@@ -406,25 +417,88 @@ body {
   margin: 0 5px;
 }
 
-.right-btn {
-  display: flex;
-  border: solid 1px #000;
-  padding: 0 10px;
-  font-size: 12px;
-  height: 16px;
-  border-radius: 8px;
-}
-
 @media screen and (max-width: 768px) {
+  .block {
+    margin-bottom: 25px;
+  }
+
+  .card {
+    padding: 25px 10%;
+    border-radius: 20px;
+  }
+
+  .card-item {
+    margin-bottom: 20px;
+  }
+  .card-item:last-child {
+    margin: 0;
+  }
+  .card-item[data-type='chill'] .left-img {
+    width: 40px;
+  }
+  .card-item[data-type='water'] .left-img {
+    width: 20px;
+  }
+  .card-item[data-type='pipe'] .left-img {
+    width: 32px;
+  }
+
+  .card-left {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .left-img {
+    margin-right: 3px;
+  }
+
+  .card-right {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .right-item {
+    width: 50%;
+    margin-bottom: 5px;
+  }
+
   .right-color {
     width: 26px;
     height: 26px;
   }
+
+  .right-btn {
+    display: none;
+  }
+
+  #mb-btn {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 30px;
+    border-radius: 15px;
+    border: solid 1px #000;
+    margin: 0 auto 8px;
+    width: 106px;
+  }
 }
 @media screen and (min-width: 769px) {
+  #wrapper-single {
+    max-width: 1200px;
+  }
+
+  .block {
+    margin-bottom: 40px;
+  }
+
   .card {
-    padding: 20px 4%;
+    padding: 20px;
     border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
 
   .card-item {
@@ -435,7 +509,7 @@ body {
     width: 82px;
   }
   .card-item[data-type='water'] .left-img {
-    width: 58px;
+    width: 55px;
   }
   .card-item[data-type='pipe'] .left-img {
     width: 70px;
@@ -443,6 +517,9 @@ body {
 
   .card-left {
     margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .left-name {
@@ -457,6 +534,71 @@ body {
   .right-color {
     width: 26px;
     height: 26px;
+  }
+
+  .right-btn {
+    cursor: pointer;
+    display: flex;
+    border: solid 1px #000;
+    padding: 0 10px;
+    font-size: 12px;
+    height: 16px;
+    border-radius: 8px;
+  }
+
+  #mb-btn {
+    display: none;
+  }
+}
+.title-txt {
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.title-switch {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title-item {
+  display: flex;
+  align-items: flex-end;
+}
+
+.title-status[data-status='man'] {
+  color: #009245;
+}
+.title-status[data-status='auto'] {
+  color: #8C6239;
+}
+.title-status[data-status='off'] {
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  .title-txt {
+    margin-bottom: 5px;
+  }
+
+  .title-item {
+    font-size: 14px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .title {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  .title-txt {
+    margin-right: 8px;
+  }
+
+  .title-item {
+    font-size: 16px;
+    margin-right: 15px;
   }
 }
 .pipe {
@@ -477,10 +619,10 @@ body {
 }
 
 .pipe-board {
-  width: 200px;
-  height: 89px;
-  background-image: url('../images/board.png?1619963513');
-  background-size: 200px 88.5px;
+  width: 170px;
+  height: 75px;
+  background-image: url('../images/board.png?1620043417');
+  background-size: 170px 75px;
   position: relative;
 }
 
@@ -489,12 +631,12 @@ body {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 2px 70px 2px;
-  border-color: transparent transparent #565656;
-  left: 98px;
+  border-width: 2px 60px 2px 0;
+  border-color: transparent #565656 transparent transparent;
+  left: calc( 85px - 2px );
+  left: 25px;
   bottom: 0;
-  transform-origin: 50% 100%;
-  transform: rotate(-30deg);
+  transform-origin: 100% 50%;
 }
 
 #lb {
@@ -614,6 +756,127 @@ body {
     color: #fff;
     font-size: 21px;
     line-height: 36px;
+  }
+}
+#lb-label {
+  font-size: 14px;
+  display: inline-flex;
+  overflow: hidden;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #fff;
+  margin: 8px 0 12px;
+}
+
+.lblabel-item {
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  border-right: solid 1px #aaa;
+  cursor: pointer;
+}
+.lblabel-item.active {
+  cursor: default;
+  background-color: #ddd;
+}
+.lblabel-item:first-child {
+  padding-left: 12px;
+}
+.lblabel-item:last-child {
+  padding-right: 12px;
+  border: none;
+}
+
+#c-all {
+  display: flex;
+}
+
+.c-c {
+  background-color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .c-box {
+    width: 200px;
+  }
+}
+@media screen and (min-width: 769px) {
+  #lb-lr {
+    display: flex;
+    width: calc( 330px + 900px );
+    margin: 0 auto;
+  }
+
+  #lb-left {
+    width: 275px;
+  }
+
+  #lb-subtitle {
+    color: yellow;
+  }
+
+  .c-all-title {
+    margin-bottom: 5px;
+    font-size: 20px !important;
+  }
+
+  .c-box {
+    margin-right: 15px;
+  }
+
+  .c-item {
+    margin-bottom: 15px;
+  }
+  .c-item:last-child {
+    margin: 0;
+  }
+
+  .c-c {
+    padding: 10px;
+    border-radius: 10px;
+    width: 120px;
+    margin-bottom: 5px;
+  }
+
+  .c-machine {
+    margin-bottom: 5px;
+  }
+
+  .c-machine, .c-all-title, .c-msg {
+    color: #fff;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #lb-right {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) {
+  #lb-right {
+    width: calc( 100% - 330px );
+    width: 928px;
+  }
+
+  .lb-title {
+    font-size: 21px;
+    font-weight: bold;
+    color: #fff;
+    display: inline;
+    margin-right: 10px;
+  }
+
+  .lb-subtitle {
+    color: #fff;
+    font-size: 16px;
+    display: inline;
+  }
+
+  .canvas-box {
+    background-color: #fff;
+    padding: 30px 30px 10px;
+    border-radius: 20px;
+    margin-top: 12px;
   }
 }
 
