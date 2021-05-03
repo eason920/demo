@@ -77,6 +77,7 @@ $(()=>{
 		console.log(nua);
 		if( /iphone | ipad | android/i.test(nua) ){
 			$('#lb, #lb-masker').hide();
+			$('body').removeClass('is-open')
 		}else{
 			const bottom = $('#lb-content').outerHeight(true) * -1;
 			$('#lb').css({bottom});
