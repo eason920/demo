@@ -9,6 +9,10 @@
     <script src="./assets/plugins/jquery/jquery-1.12.4-min.js"></script>
     <script src="./assets/plugins/chart-js/Chart-2.8.0.min.js"></script>
     <script src="./js/single_chill.js"></script>
+    <link href="jquery.minicolors.css" rel="stylesheet">
+    <script src="jquery.minicolors.js"></script>
+    <script src="setting.js"></script>
+    <script src="./js/sys.js"></script>
   </head>
   <body> 
     <div id="nav">
@@ -36,6 +40,16 @@
           <div class="navlabel-item active">冷卻水系統狀態</div>
         </div>
         <div id="statusbox">
+          <div class="status-chillm status-box">
+            <div class="status-item" data-status="0">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">1</div>
+            </div>
+            <div class="status-item" data-status="1">
+              <div class="status-color" style="background-color: greenyellow"></div>
+              <div class="status-txt">2</div>
+            </div>
+          </div>
           <div class="status-chill status-box">
             <div class="status-item" data-status="0">
               <div class="status-color" style="background-color: greenyellow"></div>
@@ -60,16 +74,6 @@
             <div class="status-item" data-status="5">
               <div class="status-color" style="background-color: greenyellow"></div>
               <div class="status-txt">5</div>
-            </div>
-          </div>
-          <div class="status-chillm status-box">
-            <div class="status-item" data-status="0">
-              <div class="status-color" style="background-color: greenyellow"></div>
-              <div class="status-txt">1</div>
-            </div>
-            <div class="status-item" data-status="1">
-              <div class="status-color" style="background-color: greenyellow"></div>
-              <div class="status-txt">2</div>
             </div>
           </div>
           <div class="status-water status-box">
@@ -389,7 +393,7 @@
     </div>
     <div id="lb-masker"> </div>
     <div id="lb">
-      <div id="lb-cbox"><span>×</span><img id="lb-close" src="./images/lb_close.png"><img id="lb-open" src="./images/lb_open.png"></div>
+      <div id="lb-cbox"><span>╳</span><img id="lb-close" src="./images/lb_close.png"><img id="lb-open" src="./images/lb_open.png"></div>
       <div id="lb-content">
         <div id="lb-left">
           <div id="lb-title">冰機運作時數統計</div>
@@ -409,6 +413,53 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div id="sys-masker"> </div>
+    <div class="sys sys-login">
+      <div class="sys-title">登入
+        <div class="sys-close">╳</div>
+      </div>
+      <div class="sys-box">
+        <div class="sys-item">
+          <div class="sys-txt">帳號</div>
+          <input class="sys-ipt" type="text" style="width: 160px">
+        </div>
+        <div class="sys-item">
+          <div class="sys-txt">密碼</div>
+          <input class="sys-ipt" type="password" style="width: 160px">
+        </div><br>
+        <div class="sys-btn">登入</div>
+      </div>
+    </div>
+    <div class="sys sys-area">
+      <div class="sys-title">請調整變頻器警示區間
+        <div class="sys-close">╳</div>
+      </div>
+      <div class="sys-box">
+        <div class="sys-item">
+          <div class="sys-txt">數據逹</div>
+          <input class="sys-ipt" type="text" style="width: 30px">
+          <div class="sys-txt">時為開機中</div>
+        </div>
+        <div class="sys-item">
+          <div class="sys-txt">數據逹</div>
+          <input class="sys-ipt" type="text" style="width: 30px">
+          <div class="sys-txt">時為開機高</div>
+        </div><br>
+        <div class="sys-btn">修改</div>
+      </div>
+    </div>
+    <div class="sys sys-color">
+      <div class="sys-title">請選擇色彩
+        <div class="sys-close">╳</div>
+      </div>
+      <div class="sys-box is-color">
+        <input class="demo" type="text" data-control="wheel" value="#ff99ee"><br>
+        <input class="demo" type="text" data-control="wheel" value="#ff99ee"><br>
+        <input class="demo" type="text" data-control="wheel" value="#ff99ee"><br>
+        <div class="sys-left"></div>
+        <div class="sys-right"></div>
       </div>
     </div>
   </body>
