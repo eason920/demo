@@ -610,7 +610,7 @@ body {
 
   #lb-cbox {
     position: fixed;
-    font-size: 27px;
+    font-size: 20px;
     width: 30px;
     height: 30px;
     top: 29px;
@@ -774,14 +774,18 @@ body {
   }
 }
 @media screen and (min-width: 769px) {
+  #lb-content {
+    padding: 15px;
+  }
+
   #lb-lr {
     display: flex;
-    width: calc( 330px + 900px );
+    width: calc( 230px + 800px );
     margin: 0 auto;
   }
 
   #lb-left {
-    width: 275px;
+    width: 230px;
   }
 
   #lb-subtitle {
@@ -794,7 +798,7 @@ body {
 
   .c-all-title {
     margin-bottom: 5px;
-    font-size: 20px !important;
+    font-size: 16px !important;
   }
 
   .c-box {
@@ -802,7 +806,7 @@ body {
   }
 
   .c-item {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
   }
   .c-item:last-child {
     margin: 0;
@@ -811,7 +815,7 @@ body {
   .c-c {
     padding: 10px;
     border-radius: 10px;
-    width: 120px;
+    width: 80px;
     margin-bottom: 5px;
   }
 
@@ -821,7 +825,7 @@ body {
 
   .c-machine, .c-all-title, .c-msg {
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -832,7 +836,7 @@ body {
 @media screen and (min-width: 769px) {
   #lb-right {
     width: calc( 100% - 330px );
-    width: 928px;
+    width: 800px;
   }
 
   .lb-title {

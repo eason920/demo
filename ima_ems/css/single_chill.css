@@ -449,6 +449,15 @@ body {
 
 .rbox-top.is-psy {
   display: flex;
+  position: relative;
+  padding-left: 40px;
+}
+
+.img-psy {
+  height: 40px;
+  position: absolute;
+  top: 9px;
+  left: 18px;
 }
 
 .rbox-psyitem {
@@ -578,6 +587,10 @@ body {
 
   .rbox-top {
     padding: 15px;
+  }
+
+  .img-psy {
+    top: 3px;
   }
 
   .rbox-status-color {
@@ -771,7 +784,7 @@ body {
 
   #lb-cbox {
     position: fixed;
-    font-size: 27px;
+    font-size: 20px;
     width: 30px;
     height: 30px;
     top: 29px;
