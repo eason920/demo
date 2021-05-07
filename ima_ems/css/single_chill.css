@@ -391,6 +391,10 @@ body {
   font-size: 0;
 }
 
+.rooftop {
+  position: relative;
+}
+
 #build {
   background-color: #fff;
   display: flex;
@@ -549,10 +553,12 @@ body {
 
   .rooftop {
     width: 250px;
+    top: 2px;
   }
 
   #build {
     padding: 20px 4%;
+    border: solid 2px #000;
   }
 
   .build-row + .build-row {
@@ -575,6 +581,7 @@ body {
   }
   .build-item[data-status='0']:after {
     font-size: 22px;
+    top: 0;
   }
 
   .right-title {
@@ -598,8 +605,8 @@ body {
     height: 20px;
   }
   .rbox-status-color[data-status='0']:after {
-    top: -2px;
-    left: 3px;
+    top: 0px;
+    left: -2px;
     font-size: 23px;
   }
 
@@ -652,12 +659,14 @@ body {
 
   .rooftop {
     height: 47px;
+    top: 3px;
   }
 
   #build {
     padding: 20px 6% 50px;
     height: calc( 100% - 47px);
     min-height: 660px;
+    border: solid 3px #000;
   }
 
   .build-floor {
@@ -784,7 +793,7 @@ body {
 
   #lb-cbox {
     position: fixed;
-    font-size: 20px;
+    font-size: 13px;
     width: 30px;
     height: 30px;
     top: 29px;
