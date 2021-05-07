@@ -611,6 +611,7 @@ body {
   #lb-cbox {
     position: fixed;
     font-size: 13px;
+    font-weight: bold;
     width: 30px;
     height: 30px;
     top: 29px;

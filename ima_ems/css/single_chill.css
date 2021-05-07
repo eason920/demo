@@ -581,7 +581,7 @@ body {
   }
   .build-item[data-status='0']:after {
     font-size: 22px;
-    top: 0;
+    top: -1;
   }
 
   .right-title {
@@ -606,7 +606,7 @@ body {
   }
   .rbox-status-color[data-status='0']:after {
     top: 0px;
-    left: -2px;
+    left: -1px;
     font-size: 23px;
   }
 
@@ -794,6 +794,7 @@ body {
   #lb-cbox {
     position: fixed;
     font-size: 13px;
+    font-weight: bold;
     width: 30px;
     height: 30px;
     top: 29px;
