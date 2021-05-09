@@ -145,6 +145,8 @@ body {
   height: 10px;
   margin-right: 5px;
   font-size: 12px;
+  border: solid 1px #000;
+  overflow: hidden;
 }
 
 .status-chill .status-item[data-status='0'] .status-color {
@@ -153,9 +155,9 @@ body {
 .status-chill .status-item[data-status='0'] .status-color::after {
   content: "╳";
   position: absolute;
-  color: #fff;
-  top: -3px;
-  left: 0px;
+  color: #000;
+  top: -4px;
+  left: -1px;
   font-size: 16px;
   font-weight: lighter;
 }
@@ -642,9 +644,16 @@ body {
 }
 @media screen and (min-width: 769px) {
   #lb {
+    transition: bottom 0.3s;
     bottom: 0;
     width: 100%;
     min-width: 1024px;
+  }
+  #lb[data-status='1'] #lb-close {
+    display: inline-block;
+  }
+  #lb[data-status='1'] #lb-open {
+    display: none;
   }
 
   #lb-masker {
@@ -959,9 +968,50 @@ body {
   text-align: left;
 }
 
-.minicolors-position-bottom .minicolors-panel {
-  top: 0 !important;
-  left: 94px;
+.sys-citem {
+  height: 30px;
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+}
+.sys-citem.is-seling .sys-sbtn {
+  z-index: 999;
+}
+
+.sys-ctxt {
+  position: absolute;
+  top: 6px;
+  left: 79px;
+  font-size: 14px;
+}
+
+.sys-sbtn {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 18px;
+  font-size: 13px;
+  color: #000;
+  border: solid 1px #000;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.minicolors-input {
+  font-size: 0;
+  width: 200px !important;
+  background-color: transparent;
+  border: none !important;
+  cursor: pointer !important;
+  padding-left: 0 !important;
+}
+
+.minicolors-swatch {
+  left: 56px !important;
 }
 
 /*# sourceMappingURL=multiple.css.map */

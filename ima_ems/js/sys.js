@@ -19,4 +19,10 @@ $(()=>{
     $('#sys-masker, .sys-color, .sys-area, .sys-login').hide();
   })
 
+
+  
+	// ----------------------------
+	// demo v
+	// ----------------------------
+	// $('.log-color.log-btn').click();
 })
